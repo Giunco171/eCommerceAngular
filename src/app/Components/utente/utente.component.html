@@ -1,0 +1,26 @@
+<div class="showProdotto">
+  <mat-card class="example-card" *ngIf="getNome() !== null">
+    <mat-card-header>
+      <div mat-card-avatar class="example-header-image"></div>
+      <mat-card-title>{{getNome()}}</mat-card-title>
+      <mat-card-subtitle>{{getCognome()}}</mat-card-subtitle>
+    </mat-card-header>
+    <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Foto profilo">
+    <mat-card-content>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+        Donec et ultrices ipsum, id venenatis magna. Nulla quis 
+        vestibulum arcu, a imperdiet ligula. Mauris eu tincidunt 
+        erat, eget blandit leo. Sed volutpat, nisl vel vestibulum 
+        laoreet, libero purus fringilla tortor, in ultricies est tortor 
+        non mi. Praesent pulvinar elementum lectus ac aliquam. 
+      </p>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-stroked-button color="primary" (click)="goToCarrello()">Carrello</button>
+      <button mat-stroked-button color="primary" (click)="goToOrdini()">Ordini</button>
+      <button mat-stroked-button color="accent" *ngIf="isAdmin()">ListaProdotti</button>
+      <button mat-stroked-button color="accent" *ngIf="isAdmin()" (click)="goToAdmin()">AddProdotti</button>
+    </mat-card-actions>
+  </mat-card>
+</div>

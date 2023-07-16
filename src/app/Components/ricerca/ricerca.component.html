@@ -1,0 +1,51 @@
+<div class="divCentrata">
+    <p>
+        <mat-form-field class="centered">
+            <mat-label>Nome prodotto</mat-label>
+            <input matInput placeholder="Air Force 1" [formControl]="nome">
+            <mat-icon matSuffix>checkroom</mat-icon>
+        </mat-form-field>
+    </p>
+    <p>
+        <mat-form-field class="centered">
+            <mat-label>Prezzo Max</mat-label>
+            <input matInput placeholder="5000" [formControl]="prezzoMax">
+            <mat-icon matSuffix>euro_symbol</mat-icon>
+            <mat-error *ngIf="prezzoMax.invalid">{{getErrorMessagePrezzoMax()}}</mat-error>
+        </mat-form-field>
+    </p>
+    <p>
+        <mat-form-field class="centered">
+            <mat-label>Prezzo Min</mat-label>
+            <input matInput placeholder="0" [formControl]="prezzoMin">
+            <mat-icon matSuffix>euro_symbol</mat-icon>
+            <mat-error *ngIf="prezzoMax.invalid">{{getErrorMessagePrezzoMin()}}</mat-error>
+        </mat-form-field>
+    </p>
+    <p>
+        <mat-form-field class="centered">
+            <mat-label>Brand</mat-label>
+            <input matInput placeholder="Nike" [formControl]="brand">
+            <mat-icon matSuffix>local_offer</mat-icon>
+        </mat-form-field>
+    </p>
+    <p>
+        <mat-form-field class="centered">
+            <mat-label>Taglia</mat-label>
+            <input matInput placeholder="40" [formControl]="taglia">
+            <mat-icon matSuffix>straighten</mat-icon>
+            <mat-error *ngIf="taglia.invalid">{{getErrorMessageTaglia()}}</mat-error>
+        </mat-form-field>
+    </p>
+
+
+    <div>
+        <p class="centered">
+            <button mat-stroked-button [disabled]="prezzoMax.invalid || prezzoMin.invalid || taglia.invalid"
+            [ngClass]="{'centeredActive-button': !prezzoMax.invalid && !prezzoMin.invalid && !taglia.invalid , 
+            'centeredInactive-button': prezzoMax.invalid || prezzoMin.invalid || taglia.invalid }"
+            (click)="ricercaAvanzata()">
+            Ricerca</button>
+        </p>
+    </div>
+</div>

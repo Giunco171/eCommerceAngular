@@ -1,0 +1,34 @@
+<mat-toolbar role="toolbar" color="primary">
+  <button mat-icon-button class="example-icon" aria-label="Example icon button with a menu icon" [matMenuTriggerFor]="menu">
+    <mat-icon>menu</mat-icon>
+  </button>
+  <mat-menu #menu="matMenu" class="menu-screen">
+    <button mat-menu-item class="menu-item" (click)="this.router.navigate(['/utente'])">Profilo</button>
+    <button mat-menu-item class="menu-item" (click)="this.router.navigate(['/ricerca'])">Ricerca Avanzata</button>
+  </mat-menu>
+  <span routerLink="/" class="titolo">eCommerceSneakers</span>
+  <span class="example-spacer"></span>
+  <button mat-icon-button class="example-icon favorite-icon" aria-label="Favorite button" matTooltip="Register" 
+  *ngIf="!auth.isLoggato()" (click)="registrati()">
+    <mat-icon>perm_identity</mat-icon>
+  </button>
+  <button mat-icon-button class="example-icon" aria-label="Share button" matTooltip="Login" 
+  *ngIf="!auth.isLoggato()" (click)="logIn()">
+   <mat-icon>login</mat-icon>
+ </button>
+
+ <!--Dopo essersi loggati-->
+  <button mat-icon-button class="example-icon favorite-icon" aria-label="Favorite button" matTooltip="Profile" 
+  *ngIf="auth.isLoggato()"
+  (click)="account()">
+    <mat-icon>account_circle</mat-icon>
+  </button>
+  <button mat-icon-button class="example-icon" aria-label="Share button" matTooltip="Logut" *ngIf="auth.isLoggato()"
+  (click)="logOut()">
+    <mat-icon>logout</mat-icon>
+  </button>
+
+</mat-toolbar>
+
+
+<router-outlet></router-outlet>
